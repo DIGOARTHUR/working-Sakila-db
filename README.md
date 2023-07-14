@@ -36,6 +36,8 @@ WHERE name = "Portuguese"
 ```
 
 # JOIN
+```sql
 SELECT staff.first_name, payment.*
 FROM staff
 JOIN payment ON staff.staff_id = payment.staff_id
+```
