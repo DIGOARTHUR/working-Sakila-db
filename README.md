@@ -22,7 +22,8 @@ SET SQL_SAFE_UPDATES = 0;
 ## Update
 ```sql
 -- UPDATE DATA 
-UPDATE staff SET picture = 'https://files.tecnoblog.net/wp-content/uploads/2019/02/thispersondoesnotexist.jpg'
+UPDATE staff
+SET picture = 'https://files.tecnoblog.net/wp-content/uploads/2019/02/thispersondoesnotexist.jpg'
 WHERE first_name = 'Mike' 
 ```
 
