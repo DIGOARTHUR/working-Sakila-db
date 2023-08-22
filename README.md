@@ -37,6 +37,7 @@ SELECT title, description FROM film;
 SELECT * FROM film
 WHERE length = 126
 ```
+## Distinct
 
 
 
@@ -55,6 +56,52 @@ SET SQL_SAFE_UPDATES = 0;
 DELETE FROM language
 WHERE name = "Portuguese"
 ```
+
+## Distinct
+```sql
+SELECT country_id, city FROM city
+ORDER BY country_id
+
+
+SELECT DISTINCT country_id FROM city
+ORDER BY country_id
+```
+
+
+
+# AS
+```sql
+-- RENAME COLUMNS
+SELECT title as Título, description as Descrição FROM film
+--or
+
+SELECT title as "Título do Filme", description as Descrição FROM film
+```
+# COMPARASION
+
+- ## > = != <
+```sql
+-- GREATER-THAN SIGN
+SELECT * FROM film
+WHERE rental_duration > 6;
+```
+```sql
+-- GREATER-THAN SIGN or EQUAL
+SELECT * FROM film
+WHERE length <= 60;
+```
+
+```sql
+SELECT * FROM customer
+WHERE active != 1
+```
+- ## OR NOT
+
+```sql
+SELECT * FROM film
+WHERE rental_duration = 5 OR length>90
+```
+
 # ORDER BY
 ```sql
 --- ORDER BY name
