@@ -18,13 +18,27 @@ VALUES("Portuguese");
 ```
 
 
-## Select
+## Select 
 ```sql
--- SELECT DATA
-SELECT description, title FROM film;
+-- SELECT TABLE FILM
+SELECT * FROM film;
+```
+SET SQL_SAFE_UPDATES = 0;
+
+- ### Select specific columns
+```sql
+-- SELECT COLUMNS: title description of table film
+SELECT title, description FROM film;
 ```
 
-SET SQL_SAFE_UPDATES = 0;
+- ### Select equal
+```sql
+-- SELECT TABLE FILM WITH LENGTH...
+SELECT * FROM film
+WHERE length = 126
+```
+
+
 
 ## Update
 ```sql
@@ -33,7 +47,7 @@ UPDATE staff
 SET picture = 'https://files.tecnoblog.net/wp-content/uploads/2019/02/thispersondoesnotexist.jpg'
 WHERE first_name = 'Mike' 
 ```
-
+SET SQL_SAFE_UPDATES = 0;
 ## Delete
 
 ```sql
@@ -41,6 +55,19 @@ WHERE first_name = 'Mike'
 DELETE FROM language
 WHERE name = "Portuguese"
 ```
+# ORDER BY
+```sql
+--- ORDER BY name
+SELECT * FROM category
+ORDER BY name DESC;
+```
+
+```sql
+--- ORDER BY category_id
+SELECT * FROM category
+ORDER BY category_id DESC;
+```
+
 
 # JOIN
 ```sql
