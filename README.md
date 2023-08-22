@@ -1,4 +1,11 @@
- Here I will explore SQL concepts, working with the Sakila database.
+
+<!---
+
+docs: update README.md
+-->
+
+
+Here I will explore SQL concepts, working with the Sakila database.
 
 
 # CRUD
@@ -6,7 +13,7 @@
 
 ```sql
 -- CREATE, INSERT DATA
-INSERT INTO language (name, )
+INSERT INTO language (name)
 VALUES("Portuguese");
 ```
 
