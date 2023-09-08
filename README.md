@@ -37,7 +37,7 @@ SELECT title, description FROM film;
 SELECT * FROM film
 WHERE length = 126
 ```
-## Distinct
+
 
 
 
@@ -102,7 +102,45 @@ SELECT * FROM film
 WHERE rental_duration = 5 OR length>90
 ```
 
+```sql
+SELECT * FROM film
+WHERE rental_duration = 7;
+```
+
+```sql
+SELECT * FROM film
+WHERE NOT rental_duration = 7;
+```
+
+```sql
+SELECT * FROM rental
+WHERE customer_id='239' and NOT inventory_id ='2346';
+```
+
+
+# IN
+
+```sql
+SELECT * FROM film
+WHERE length ='30'
+OR length='60'
+OR length='120';
+```
+
+```sql
+SELECT * FROM film
+WHERE length IN (60,90,120);
+```
+
+# BETWEEN
+
+```sql
+SELECT * FROM film
+WHERE length BETWEEN 50 AND 55;
+```
+
 # ORDER BY
+
 ```sql
 --- ORDER BY name
 SELECT * FROM category
@@ -110,9 +148,49 @@ ORDER BY name DESC;
 ```
 
 ```sql
+SELECT * FROM film
+WHERE replacement_cost BETWEEN 20 AND 25
+ORDER BY replacement_cost DESC;
+```
+
+
+```sql
 --- ORDER BY category_id
 SELECT * FROM category
 ORDER BY category_id DESC;
+```
+# LIKE
+
+```sql
+SELECT * FROM film
+WHERE title LIKE("%PHOBIA%")
+```
+
+```sql
+SELECT * FROM film
+WHERE title LIKE("%ts%")
+```
+
+```sql
+SELECT * FROM customer
+WHERE first_name LIKE ("ERI%")
+```
+
+```sql
+SELECT * FROM customer
+WHERE last_name LIKE ("%TS")
+```
+
+# REGEXP
+
+```sql
+SELECT * FROM film
+WHERE title REGEXP("^da")
+```
+
+```sql
+SELECT * FROM film
+WHERE title REGEXP("ra$")
 ```
 
 
@@ -122,3 +200,4 @@ SELECT staff.first_name, payment.*
 FROM staff
 JOIN payment ON staff.staff_id = payment.staff_id
 ```
+
