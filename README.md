@@ -193,6 +193,17 @@ SELECT * FROM film
 WHERE title REGEXP("ra$")
 ```
 
+# COUNT
+```sql
+SELECT COUNT(*) as "The movies with more than 7 days of rental" FROM film
+WHERE rental_duration = 7;
+```
+# LIMIT
+```sql
+SELECT * FROM film
+ORDER BY rental_duration
+LIMIT 3;
+```
 
 # JOIN
 ```sql
@@ -200,4 +211,31 @@ SELECT staff.first_name, payment.*
 FROM staff
 JOIN payment ON staff.staff_id = payment.staff_id
 ```
+```sql
+SELECT c.first_name, c.last_name, a.address FROM customer AS c
+JOIN address AS a
+ON c.address_id = a.address_id
+```
 
+```sql
+SELECT f.film_id, f.title, c.category_id, c.name
+FROM film AS f
+JOIN film_category AS fc
+ON f.film_id = fc.film_id
+JOIN category AS c
+ON c.category_id = c.category_id
+
+```
+
+# USING
+
+```sql
+SELECT f.film_id, f.title, c.category_id, c.name
+FROM film AS f
+JOIN film_category AS fc
+USING(film_id)
+JOIN category AS c
+USING (category_id)
+
+
+```
