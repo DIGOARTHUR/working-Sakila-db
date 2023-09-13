@@ -7,14 +7,27 @@ docs: update README.md
 
 Here I will explore SQL concepts, working with the Sakila database.
 
+# CREATE TABLE
+
+```sql
+CREATE TABLE users (
+  user_id INT NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  sallary INT,
+  date_of_birth DATE,
+  PRIMARY KEY(user_id)
+)
+```
+
 
 # CRUD
-## Create
+## Create, Insert
 
 ```sql
 -- CREATE, INSERT DATA
-INSERT INTO language (name)
-VALUES("Portuguese");
+INSERT INTO users( first_name, last_name, sallary, date_of_birth)
+VALUES ("Diego","Battisti", 4000, "1900-10-12")
 ```
 
 
