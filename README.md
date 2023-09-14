@@ -249,6 +249,37 @@ JOIN film_category AS fc
 USING(film_id)
 JOIN category AS c
 USING (category_id)
-
-
 ```
+
+# FUNCTIONS
+
+## MIN and MAX
+```sql
+SELECT MIN(length) FROM film
+
+SELECT MAX(length) FROM film
+```
+
+## AVG
+```sql
+SELECT AVG(length) FROM film
+```
+
+## SUM
+```sql
+SELECT SUM(length) FROM film
+```
+```sql
+SELECT COUNT(amount), SUM(amount) FROM payment;
+```
+## GROUP BY
+
+
+# Subquery
+# Stored Procedures
+# Triggers
+# Views
+
+
+
+
