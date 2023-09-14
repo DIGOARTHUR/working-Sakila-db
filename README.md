@@ -274,7 +274,21 @@ SELECT COUNT(amount), SUM(amount) FROM payment;
 ```
 ## GROUP BY
 
+```sql
+SELECT COUNT(city_id) AS number_of_cities, country FROM city
+JOIN country
+USING (country_id)
+GROUP BY (country)
+```
 
+```sql
+SELECT COUNT(film_id) AS number_of_film, name FROM film
+JOIN film_category
+USING (film_id)
+JOIN category
+USING (category_id)
+GROUP BY (name)
+```
 # Subquery
 # Stored Procedures
 # Triggers
