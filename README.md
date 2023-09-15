@@ -289,11 +289,125 @@ JOIN category
 USING (category_id)
 GROUP BY (name)
 ```
-# Subquery
-# Stored Procedures
-# Triggers
-# Views
+# SUBQUERY
+
+```sql
+SELECT title from film
+WHERE
+	length = (SELECT MAX(length) FROM film);
+```
+
+```sql
+SELECT title, rental_duration
+FROM film
+WHERE
+	rental_duration > (SELECT AVG(rental_duration) FROM film);
+```
+
+# STORED PROCEDURE
+```sql
+DELIMITER //
+CREATE PROCEDURE select_all_active_users()
+BEGIN
+	SELECT * FROM customer
+    WHERE active = 1;
+END//
+DELIMITER ;
+
+CALL select_all_active_users()
+```
 
 
+```sql
+DELIMITER //
+CREATE PROCEDURE get_movies_from_category(category_name VARCHAR(100))
+BEGIN
+	SELECT f.title, c.name  FROM film f
+    JOIN film_category fc
+    USING(film_id)
+    JOIN category c
+    USING(category_id)
+    WHERE c.name = category_name;
+END//
+DELIMITER ;
+
+CALL get_movies_from_category("ACTION")
+```
 
 
+```sql
+CREATE PROCEDURE get_movies_greater_than_or_equal_to_rental_duration(rental_duration INT)
+BEGIN
+	SELECT title, rental_duration  
+    FROM film 
+    WHERE rental_duration >= rental_duration;
+END//
+DELIMITER ;
+
+CALL get_movies_greater_than_or_equal_to_rental_duration(2)
+```
+
+
+# TRIGGERS
+
+```sql
+-- TRIGGERS
+ CREATE TRIGGER before_update_customer
+	BEFORE UPDATE ON customer
+    FOR EACH ROW
+    SET NEW.last_update = NOW();
+
+
+UPDATE customer
+SET first_name = 'JOAQUIN'
+WHERE customer_id = 2;
+
+
+SELECT * FROM customer;
+```
+
+# VIEWS
+
+```sql
+-- Views
+CREATE VIEW film_and_category
+AS
+SELECT f.film_id, f.title, c.name
+FROM film f
+JOIN film_category fc
+USING(film_id)
+JOIN category c
+USING(category_id);
+
+
+SELECT * FROM film_and_category WHERE film_id=97
+```
+
+```sql
+-- Views
+CREATE VIEW customer_address
+AS
+SELECT c.first_name, c.last_name, a.address, ct.city
+FROM customer c
+JOIN address a
+USING(address_id)
+JOIN city ct
+USING(city_id);
+
+
+SELECT * FROM customer_address
+```
+
+#DROP
+
+
+```sql
+DROP TRIGGER before_update_customer;
+```
+```sql
+DROP VIEW actor_info
+```
+
+```sql
+DROP PROCEDURE film_in_stock()
+```
