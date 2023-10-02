@@ -398,7 +398,7 @@ USING(city_id);
 SELECT * FROM customer_address
 ```
 
-#DROP
+# DROP
 
 
 ```sql
@@ -411,3 +411,17 @@ DROP VIEW actor_info
 ```sql
 DROP PROCEDURE film_in_stock()
 ```
+
+# Database Design and Database Modeling
+
+## Normal Form
+
+### NF01
+
+### NF03
+
+### NF02
+
+
+
+
