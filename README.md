@@ -422,6 +422,8 @@ DROP PROCEDURE film_in_stock()
 
 ### NF02
 
+## Create EER Diagram
 
+![image](https://github.com/DIGOARTHUR/working-Sakila-db/assets/59892368/68a7c2ac-db40-4441-888f-1dde4eb50c0b)
 
 
